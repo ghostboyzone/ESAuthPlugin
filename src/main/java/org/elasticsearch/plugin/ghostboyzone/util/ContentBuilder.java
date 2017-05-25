@@ -113,6 +113,7 @@ public class ContentBuilder {
 		
 		String[] authArr = authStr.split(":");
 		if (authArr.length != 2) {
+			logger.info("Auth failed: invalid auth");
 			respForbidden(request, channel, logger);
 			return false;
 		}
@@ -128,6 +129,7 @@ public class ContentBuilder {
 		// logger.info("config_password:" + config_password);
 		
 		if (!user_username.equals(config_username) || !user_password.equals(config_password)) {
+			logger.info("Auth failed: username[" + user_username + "] password[" + user_password + "]");
 			respForbidden(request, channel, logger);
 			return false;
 		}
@@ -174,6 +176,7 @@ public class ContentBuilder {
 			logger.info("Remote:" + remoteAddr.getHostName());
 			
 			if (!has_auth_ip) {
+				logger.info("Ip Auth failed: ip[" + remoteAddr.getHostName() + "]");
 				respIpForbidden(request, channel, logger);
 				return false;
 			}
