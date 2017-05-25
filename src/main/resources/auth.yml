@@ -1,0 +1,8 @@
+# 是否开启验证
+open_auth: false
+username: admin
+password: admin
+
+# 是否开启ip验证
+open_ip_auth: false
+ip_auth_list: ["127.0.0.1"]
